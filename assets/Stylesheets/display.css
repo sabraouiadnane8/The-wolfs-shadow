@@ -1,173 +1,169 @@
 /* COLORS
-red:    #B31
-back:   #DEA
-far:    #9C8
-mid:    #597
-near:   #255
-fore:   #235
+   Une palette de couleurs utilisée pour donner du style au site
+   red:    #B31  -> Utilisé principalement pour le texte principal
+   back:   #DEA  -> Couleur d'accentuation (bordures et détails)
+   far:    #9C8  -> Réservé pour des éléments secondaires
+   mid:    #597  -> Une teinte intermédiaire rarement utilisée
+   near:   #255  -> Couleur dominante pour les boutons et le fond
+   fore:   #235  -> Utilisée pour des éléments de texte discrets
 */
 
+/* Style général du body pour centrer et unifier */
 body {
   align-items: center;
-  background-color: rgb(0, 3, 3);
+  background-color: rgb(0, 3, 3); /* Fond sombre pour contraster avec les éléments */
   display: flex;
-  flex-direction: column;
-  font-family: 'Quicksand', sans-serif;
+  flex-direction: column; /* Empile les éléments verticalement */
+  font-family: 'Quicksand', sans-serif; /* Une police moderne et lisible */
 }
 
+/* Style du header principal */
 header {
-  color: #B31;
-  font-family: 'Berkshire Swash', cursive;
-  font-size: 72px;
-  margin: 20px 0px;
+  color: #B31; /* Rouge vif pour attirer l'attention */
+  font-family: 'Berkshire Swash', cursive; /* Police élégante et distinctive */
+  font-size: 72px; /* Taille importante pour le titre principal */
+  margin: 20px 0px; /* Espacement vertical */
 }
 
+/* Conteneur pour le canvas */
 .canvas-box {
-  border: 8px rgb(156, 41, 41) solid;
-  border-radius: 8px;
-  height: 398px;
-  position: relative;
+  border: 8px rgb(156, 41, 41) solid; /* Bordure rouge foncé pour le contraste */
+  border-radius: 8px; /* Angles légèrement arrondis */
+  height: 398px; /* Dimensions fixes pour un rendu uniforme */
+  position: relative; /* Positionnement pour inclure des éléments enfants absolus */
   width: 800px;
 }
 
+/* Section tactile (si utilisée avec interaction utilisateur) */
 #touch-screen {
   align-items: center;
-  display: flex;
+  display: flex; /* Centrage des éléments enfants */
   height: 100%;
   justify-content: center;
   width: 100%;
-  z-index: 5;
+  z-index: 5; /* Assure que cet élément est au-dessus du canvas */
 }
 
+/* Canvas pour les animations ou les graphiques */
 canvas {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Inclut les bordures et les paddings */
   display: block;
-  position: absolute;
+  position: absolute; /* Permet de superposer avec précision */
 }
 
+/* Timer pour afficher un compte à rebours ou une durée */
 #timer {
-  align-items: center;
-  background-color: #235;
-  border: 2px solid #DEA;
+  align-items: center; /* Centrage vertical */
+  background-color: #235; /* Fond bleu foncé pour le contraste */
+  border: 2px solid #DEA; /* Bordure claire pour le contraste */
   border-radius: 8px;
-  box-sizing: border-box;
-  color: #DEA;
+  color: #DEA; /* Texte de couleur assortie à la bordure */
   display: flex;
-  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Berkshire Swash', cursive; /* Style élégant */
   font-size: 28px;
-  height: 40px;
-  justify-content: flex-start;
-  margin: 0px;
-  margin-left: 320px;
-  margin-top: -160px;
-  padding: 5px 12px 10px 12px;
+  justify-content: flex-start; /* Alignement du texte à gauche */
   position: absolute;
-  width: 120px;
+  margin-left: 320px;
+  margin-top: -160px; /* Positionnement spécifique au design */
+  padding: 5px 12px 10px 12px;
+  width: 120px; /* Taille limitée pour un affichage clair */
 }
 
-/* CONTROL PANEL */
-
+/* CONTROL PANEL : Conteneur pour les contrôles */
 .control-panel {
   align-items: center;
-  background-color: rgb(0, 0, 0);
-  border: 4px rgb(156, 41, 41) solid;
+  background-color: rgb(0, 0, 0); /* Fond noir pour mettre en valeur les éléments */
+  border: 4px rgb(156, 41, 41) solid; /* Bordure rouge foncé pour la cohérence */
   border-radius: 8px;
-  box-sizing: border-box;
-  color: rgb(156, 41, 41);
+  color: rgb(156, 41, 41); /* Texte rouge foncé pour contraster */
   display: flex;
-  flex-direction: row;
-  height: 100px;
+  flex-direction: row; /* Aligne les contrôles horizontalement */
   justify-content: space-between;
-  margin-top: 30px;
-  padding: 20px;
-  text-align: center;
+  padding: 20px; /* Espacement interne pour respirer */
   width: 816px;
 }
 
+/* Style général des boutons */
 button {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 60px;
   width: 60px;
-  border-radius: 50%;
-  color: #235;
-  font-size: inherit;
+  border-radius: 50%; /* Boutons arrondis */
+  color: #235; /* Couleur du texte assortie */
+  font-size: inherit; /* Hérite de la taille de la police parent */
 }
 
+/* Effet au survol des boutons */
 button:hover {
-  background-color: rgb(202, 63, 63);
-  cursor: pointer;
-  transition: 0.5s;
-  transform: scale(1.1);
+  background-color: rgb(202, 63, 63); /* Rouge plus vif au survol */
+  cursor: pointer; /* Change le curseur pour indiquer un clic possible */
+  transition: 0.5s; /* Animation fluide */
+  transform: scale(1.1); /* Légère mise en avant */
 }
 
+/* Alignement des icônes de contrôle */
 .controls {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 140px;
-  font-size: 50px;
 }
 
-.fa-volume-up {
-  font-size: 45px;
+/* Icônes spécifiques pour le son */
+.fa-volume-up, .fa-volume-mute {
+  font-size: 45px; /* Taille pour une bonne lisibilité */
 }
 
-.fa-volume-mute {
-  font-size: 45px;
-}
-
+/* Texte dans les paragraphes */
 p {
   font-size: 24px;
   font-weight: bold;
   margin: 5px;
 }
 
-/* FOOTER */
-
+/* FOOTER : Informations supplémentaires en bas de la page */
 footer {
   align-items: center;
-  box-sizing: border-box;
-  color: rgb(156, 41, 41);
+  color: rgb(156, 41, 41); /* Rouge cohérent avec les autres sections */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 150px;
-  padding: 20px 40px;
+  padding: 20px 40px; /* Espacement généreux pour une lecture confortable */
   width: 816px;
 }
 
+/* Texte secondaire dans le footer */
 h5 {
   font-size: 16px;
   font-weight: bold;
-  /* margin: 20px; */
 }
 
+/* Navigation dans le footer */
 nav {
   align-items: center;
   display: flex;
   flex-direction: row;
-  font-size: 50px;
   justify-content: space-between;
   width: 200px;
 }
 
-.link {
-  text-decoration: none;
-}
-
+/* Liens stylisés */
 a {
-  color: rgb(151, 44, 44);
-  height: 50px;
+  color: rgb(151, 44, 44); /* Rouge plus doux pour le texte */
+  text-decoration: none; /* Supprime les soulignements */
 }
 
+/* Effet au survol des liens */
 a:hover {
-  color: rgb(179, 50, 50);
+  color: rgb(179, 50, 50); /* Rouge plus vif */
   transition: 0.5s;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Légère mise en avant */
 }
 
+/* Icônes générales */
 i {
   font-size: 50px;
 }
+
