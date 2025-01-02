@@ -3,80 +3,104 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>The Wolf's Shadow</title>
+  <title>The Wolf's Shadow</title> <!-- Titre de la page affiché dans l'onglet du navigateur -->
 
+  <!-- Configuration pour rendre la page réactive sur tous les appareils -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Icône de la page -->
   <link rel='icon' href='./assets/images/elements/apple.png' type='image/x-icon' />
 
-  <link href="./assets/stylesheets/reset.css" rel="stylesheet">
-  <link href="./assets/stylesheets/display.css" rel="stylesheet">
-  <link href="./assets/stylesheets/popups.css" rel="stylesheet">
+  <!-- Importation des fichiers CSS pour les styles de base, affichage et popups -->
+  <link href="./assets/stylesheets/reset.css" rel="stylesheet"> <!-- Réinitialise les styles par défaut -->
+  <link href="./assets/stylesheets/display.css" rel="stylesheet"> <!-- Styles spécifiques à l'affichage -->
+  <link href="./assets/stylesheets/popups.css" rel="stylesheet"> <!-- Styles pour les popups -->
 
-  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+  <!-- Importation des polices Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> <!-- Police fantaisiste -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet"> <!-- Police lisible -->
+
+  <!-- Importation des icônes Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
 </head>
 
 <body>
+  <!-- Inclusion du fichier JavaScript généré par Webpack -->
   <script type="text/javascript" src="./dist/bundle.js"></script>
 
+  <!-- En-tête principal -->
   <header>
     The Wolf's Shadow
   </header>
 
+  <!-- Conteneur pour les différents calques du jeu -->
   <div class='canvas-box'>
-    <canvas id="farCanvas" width="800" height="400"></canvas>
-    <canvas id="midCanvas" width="800" height="400"></canvas>
-    <canvas id="nearCanvas" width="800" height="400"></canvas>
-    <canvas id="houseCanvas" width="800" height="400"></canvas>
-    <canvas id="myCanvas" width="800" height="400"></canvas>
-    <canvas id="foreCanvas" width="800" height="400"></canvas>
+    <!-- Calques pour l'effet de parallaxe -->
+    <canvas id="farCanvas" width="800" height="400"></canvas> <!-- Arrière-plan éloigné -->
+    <canvas id="midCanvas" width="800" height="400"></canvas> <!-- Arrière-plan intermédiaire -->
+    <canvas id="nearCanvas" width="800" height="400"></canvas> <!-- Arrière-plan proche -->
+    <canvas id="houseCanvas" width="800" height="400"></canvas> <!-- Maison dans le jeu -->
+    <canvas id="myCanvas" width="800" height="400"></canvas> <!-- Calque principal pour les interactions -->
+    <canvas id="foreCanvas" width="800" height="400"></canvas> <!-- Premier plan -->
+
+    <!-- Interface utilisateur pour l'écran tactile et les popups -->
     <div id='touch-screen'>
+      <!-- Minuteur affiché en haut de l'écran -->
       <h2 id='timer'>00:00:0</h2>
+
+      <!-- Popup de fin de partie si le joueur perd -->
       <div id='game-lost' class='panel hidden'>
         <h1>Game Over</h1>
-        <button id='retry' class='play-again'>
+        <button id='retry' class='play-again'> <!-- Bouton pour rejouer -->
           Play Again
         </button>
       </div>
+
+      <!-- Popup de victoire -->
       <div id='game-won' class='panel hidden'>
-        <h3>You made it safely to Grandma's House.</h3>
-        <h4 id='apple-count'>0 Apples Collected</h4>
-        <img class='apple' src='./assets/images/elements/apple.png' />
-        <button id='play-again' class='play-again'>
+        <h3>You made it safely to Grandma's House.</h3> <!-- Message de victoire -->
+        <h4 id='apple-count'>0 Apples Collected</h4> <!-- Nombre de pommes collectées -->
+        <img class='apple' src='./assets/images/elements/apple.png' /> <!-- Image de pomme -->
+        <button id='play-again' class='play-again'> <!-- Bouton pour rejouer -->
           Play Again
         </button>
       </div>
+
+      <!-- Écran de démarrage -->
       <div id='game-start' class='panel'>
-        <h1>Once upon a time ... </h1>
-        <button id='start' class='play-again'>
+        <h1>Once upon a time ... </h1> <!-- Message d'introduction -->
+        <button id='start' class='play-again'> <!-- Bouton pour commencer -->
           Play Game
         </button>
       </div>
     </div>
   </div>
 
+  <!-- Panneau de contrôle pour gérer le jeu -->
   <div class='control-panel'>
+    <!-- Contrôles audio à gauche -->
     <div class='controls controls-left'>
-      <button id='mute'>
+      <button id='mute'> <!-- Bouton pour couper le son -->
         <i class="fas fa-volume-mute"></i>
       </button>
-      <button id='unmute'>
+      <button id='unmute'> <!-- Bouton pour réactiver le son -->
         <i class="fas fa-volume-up"></i>
       </button>
     </div>
+
+    <!-- Instructions au centre -->
     <span>
-      <p>Press SPACE to jump.</p>
-      <p>Collect apples for an energy boost.</p>
+      <p>Press SPACE to jump.</p> <!-- Instruction pour sauter -->
+      <p>Collect apples for an energy boost.</p> <!-- Instruction pour collecter les pommes -->
     </span>
+
+    <!-- Contrôles de lecture à droite -->
     <div class='controls'>
-      <button id='pause'>
+      <button id='pause'> <!-- Bouton pour mettre le jeu en pause -->
         <i class="far fa-pause-circle"></i>
       </button>
-      <button id='play'>
+      <button id='play'> <!-- Bouton pour relancer le jeu -->
         <i class="far fa-play-circle selected"></i>
       </button>
     </div>
@@ -84,4 +108,3 @@
 </body>
 
 </html>
-
