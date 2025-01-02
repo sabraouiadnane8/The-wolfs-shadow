@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>The Wolf's Shadow</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel='icon' href='./assets/images/elements/apple.png' type='image/x-icon' />
+
+  <link href="./assets/stylesheets/reset.css" rel="stylesheet">
+  <link href="./assets/stylesheets/display.css" rel="stylesheet">
+  <link href="./assets/stylesheets/popups.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <script type="text/javascript" src="./dist/bundle.js"></script>
+
+  <header>
+    The Wolf's Shadow
+  </header>
+
+  <div class='canvas-box'>
+    <canvas id="farCanvas" width="800" height="400"></canvas>
+    <canvas id="midCanvas" width="800" height="400"></canvas>
+    <canvas id="nearCanvas" width="800" height="400"></canvas>
+    <canvas id="houseCanvas" width="800" height="400"></canvas>
+    <canvas id="myCanvas" width="800" height="400"></canvas>
+    <canvas id="foreCanvas" width="800" height="400"></canvas>
+    <div id='touch-screen'>
+      <h2 id='timer'>00:00:0</h2>
+      <div id='game-lost' class='panel hidden'>
+        <h1>Game Over</h1>
+        <button id='retry' class='play-again'>
+          Play Again
+        </button>
+      </div>
+      <div id='game-won' class='panel hidden'>
+        <h3>You made it safely to Grandma's House.</h3>
+        <h4 id='apple-count'>0 Apples Collected</h4>
+        <img class='apple' src='./assets/images/elements/apple.png' />
+        <button id='play-again' class='play-again'>
+          Play Again
+        </button>
+      </div>
+      <div id='game-start' class='panel'>
+        <h1>Once upon a time ... </h1>
+        <button id='start' class='play-again'>
+          Play Game
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class='control-panel'>
+    <div class='controls controls-left'>
+      <button id='mute'>
+        <i class="fas fa-volume-mute"></i>
+      </button>
+      <button id='unmute'>
+        <i class="fas fa-volume-up"></i>
+      </button>
+    </div>
+    <span>
+      <p>Press SPACE to jump.</p>
+      <p>Collect apples for an energy boost.</p>
+    </span>
+    <div class='controls'>
+      <button id='pause'>
+        <i class="far fa-pause-circle"></i>
+      </button>
+      <button id='play'>
+        <i class="far fa-play-circle selected"></i>
+      </button>
+    </div>
+  </div>
+</body>
+
+</html>
